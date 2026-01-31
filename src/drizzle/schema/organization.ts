@@ -5,7 +5,7 @@ import { JobListingTable } from "./jobListing";
 import { OrganizationUserSettingsTable } from "./organizationUserSettings";
 
 export const OrganizationTable = pgTable("organizations", {
-  id: id,
+  id: varchar().primaryKey(),
   name: varchar().notNull(),
   imageURL: varchar(),
   createdAt,
