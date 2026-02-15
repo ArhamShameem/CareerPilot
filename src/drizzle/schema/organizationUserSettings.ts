@@ -4,10 +4,10 @@ import {
   pgTable,
   primaryKey,
   varchar,
-} from "drizzle-orm/pg-core";
-import { UserTable } from "./user";
-import { OrganizationTable } from "./organization";
-import { createdAt, updatedAt } from "../schemaHelpers";
+} from "drizzle-orm/pg-core"
+import { UserTable } from "./user"
+import { OrganizationTable } from "./organization"
+import { createdAt, updatedAt } from "../schemaHelpers"
 
 export const OrganizationUserSettingsTable = pgTable(
   "organization_user_settings",
@@ -24,4 +24,4 @@ export const OrganizationUserSettingsTable = pgTable(
     updatedAt,
   },
   (table) => [primaryKey({ columns: [table.userId, table.organizationId] })]
-);
+)

@@ -1,8 +1,8 @@
-import { varchar, pgTable } from "drizzle-orm/pg-core";
-import { createdAt, id, updatedAt } from "../schemaHelpers";
-import { relations } from "drizzle-orm";
-import { JobListingTable } from "./jobListing";
-import { OrganizationUserSettingsTable } from "./organizationUserSettings";
+import { varchar, pgTable } from "drizzle-orm/pg-core"
+import { createdAt, id, updatedAt } from "../schemaHelpers"
+import { relations } from "drizzle-orm"
+import { JobListingTable } from "./jobListing"
+import { OrganizationUserSettingsTable } from "./organizationUserSettings"
 
 export const OrganizationTable = pgTable("organizations", {
   id: varchar().primaryKey(),
@@ -10,7 +10,7 @@ export const OrganizationTable = pgTable("organizations", {
   imageURL: varchar(),
   createdAt,
   updatedAt,
-});
+})
 
 export const organizationRelations = relations(
   OrganizationTable,
@@ -18,4 +18,4 @@ export const organizationRelations = relations(
     jobListings: many(JobListingTable),
     organizationUserSettings: many(OrganizationUserSettingsTable),
   })
-);
+)

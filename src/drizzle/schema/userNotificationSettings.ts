@@ -1,8 +1,8 @@
-import { boolean, pgTable, varchar } from "drizzle-orm/pg-core";
-import { createdAt, updatedAt } from "../schemaHelpers";
-import { UserTable } from "./user";
-import { relations } from "drizzle-orm";
-import { UserResumeTable } from "./userResume";
+import { boolean, pgTable, varchar } from "drizzle-orm/pg-core"
+import { createdAt, updatedAt } from "../schemaHelpers"
+import { UserTable } from "./user"
+import { relations } from "drizzle-orm"
+import { UserResumeTable } from "./userResume"
 
 export const UserNotificationSettingsTable = pgTable(
   "user_notification_settings",
@@ -15,7 +15,7 @@ export const UserNotificationSettingsTable = pgTable(
     createdAt,
     updatedAt,
   }
-);
+)
 
 export const userNotificationSettingsRelations = relations(
   UserNotificationSettingsTable,
@@ -25,11 +25,11 @@ export const userNotificationSettingsRelations = relations(
       references: [UserTable.id],
     }),
   })
-);
+)
 
 export const userResumeRelation = relations(UserResumeTable, ({ one }) => ({
   user: one(UserTable, {
     fields: [UserResumeTable.userId],
     references: [UserTable.id],
   }),
-}));
+}))

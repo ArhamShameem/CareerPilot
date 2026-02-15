@@ -1,6 +1,6 @@
-import { pgTable, varchar } from "drizzle-orm/pg-core";
-import { UserTable } from "./user";
-import { createdAt, updatedAt } from "../schemaHelpers";
+import { pgTable, varchar } from "drizzle-orm/pg-core"
+import { UserTable } from "./user"
+import { createdAt, updatedAt } from "../schemaHelpers"
 
 export const UserResumeTable = pgTable("user_resumes", {
   userId: varchar()
@@ -11,4 +11,4 @@ export const UserResumeTable = pgTable("user_resumes", {
   aiSummary: varchar(),
   createdAt,
   updatedAt,
-});
+})

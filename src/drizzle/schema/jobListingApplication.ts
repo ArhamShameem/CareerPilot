@@ -6,14 +6,14 @@ import {
   text,
   uuid,
   varchar,
-} from "drizzle-orm/pg-core";
-import { createdAt, id, updatedAt } from "../schemaHelpers";
-import { JobListingTable } from "./jobListing";
-import { UserTable } from "./user";
-import { relations } from "drizzle-orm";
-import { UserNotificationSettingsTable } from "./userNotificationSettings";
-import { UserResumeTable } from "./userResume";
-import { OrganizationUserSettingsTable } from "./organizationUserSettings";
+} from "drizzle-orm/pg-core"
+import { createdAt, id, updatedAt } from "../schemaHelpers"
+import { JobListingTable } from "./jobListing"
+import { UserTable } from "./user"
+import { relations } from "drizzle-orm"
+import { UserNotificationSettingsTable } from "./userNotificationSettings"
+import { UserResumeTable } from "./userResume"
+import { OrganizationUserSettingsTable } from "./organizationUserSettings"
 
 export const applicationStages = [
   "denied",
@@ -21,12 +21,12 @@ export const applicationStages = [
   "interested",
   "interviewed",
   "hired",
-] as const;
-export type ApplicationStage = (typeof applicationStages)[number];
+] as const
+export type ApplicationStage = (typeof applicationStages)[number]
 export const applicationStageEnum = pgEnum(
   "job_listing_applications_stage",
   applicationStages
-);
+)
 
 export const JobListingApplicationTable = pgTable(
   "job_listing_applications",
@@ -44,7 +44,7 @@ export const JobListingApplicationTable = pgTable(
     updatedAt,
   },
   (table) => [primaryKey({ columns: [table.jobListingId, table.userId] })]
-);
+)
 
 export const jobListingApplicationRelations = relations(
   JobListingApplicationTable,
@@ -58,10 +58,10 @@ export const jobListingApplicationRelations = relations(
       references: [UserTable.id],
     }),
   })
-);
+)
 
 export const userRelations = relations(UserTable, ({ one, many }) => ({
   notificationSettings: one(UserNotificationSettingsTable),
   resume: one(UserResumeTable),
   organizationUserSettings: many(OrganizationUserSettingsTable),
-}));
+}))
