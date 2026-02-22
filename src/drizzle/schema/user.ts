@@ -1,5 +1,5 @@
 import { varchar, pgTable } from "drizzle-orm/pg-core"
-import { createdAt, id, updatedAt } from "../schemaHelpers"
+import { createdAt, updatedAt } from "../schemaHelpers"
 
 export const UserTable = pgTable("users", {
   id: varchar().primaryKey(),
